@@ -33,7 +33,7 @@ before_script:
   - vendor/bin/phinx --configuration=phinx.yml.dist migrate -e testing
 
 script:
-  - if [[ "$COLLECT_COVERAGE" == "true" ]]; then vendor/bin/phpunit --coverage-clover build/logs/clover.xml; else vendor/bin/phpunit; fi
+  - if [[ "$COLLECT_COVERAGE" == "true" ]]; then phpunit_mysql.xml --coverage-clover build/logs/clover.xml; else phpunit_mysql.xml; fi
   - if [[ "$WITH_CS" == "true" ]]; then vendor/bin/php-cs-fixer fix --verbose; fi
 
 after_success:
