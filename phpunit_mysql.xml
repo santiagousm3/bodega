@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit  colors="true">
-    <php>
-        <var name="db_dsn" value="mysql:dbname=simple_stock;host=localhost"/>
-        <var name="db_username" value="root"/>
-        <var name="db_password" value=""/>
-    </php>
-
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         verbose="true"
+>
     <testsuites>
-        <testsuite name="Hola Mundo prueba de Suite">
-            <directory>./bodega/</directory>
+        <testsuite name="Package Test Suite">
+            <directory suffix=".php">./bodega</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./bodega</directory>
-            </exclude>
-        </whitelist>
-    </filter>
 </phpunit>
