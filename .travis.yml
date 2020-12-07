@@ -36,7 +36,7 @@ matrix:
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
-  - composer install --no-interaction
+
   - if [[ "$DB" == "pgsql" ]]; then psql -c "DROP DATABASE IF EXISTS simple_stock;" -U postgres; fi
   - if [[ "$DB" == "pgsql" ]]; then psql -c "create database simple_stock;" -U postgres; fi
   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS simple_stock;" -uroot; fi
