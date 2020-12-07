@@ -2,9 +2,15 @@ language: php
 
 php:
 # aliased to a recent 7.x version
-  - 7.1.32
+  - 7.1
+  - 7.2
+  - hhvm
+
 services:
   - mysql
 
 before_install:
   - mysql -u root --password="" < bodega/simple_stock.sql
+
+# omitting "script:" will default to phpunit
+script: phpunit_mysql.xml
