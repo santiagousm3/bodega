@@ -6,15 +6,6 @@ php:
 services:
   - mysql
 
-addons:
-  apt:
-    sources:
-      - mysql-5.0-trusty
-    packages:
-      - mysql-server
-
-dist: trusty
-
 before_install:
   - mysql -u root --password="" < bodega/simple_stock.sql
 
