@@ -10,4 +10,4 @@ before_install:
   - mysql -u root --password="" < bodega/simple_stock.sql
 
 script:
-  - vendor/bin/phpunit_mysql
+  - phpunit_mysql
