@@ -11,3 +11,21 @@ before_install:
 
 # omitting "script:" will default to phpunit
 script: phpunit --configuration phpunit_mysql.xml 
+
+# Here is the magic part
+deploy:
+  # Use Github pages deploy process
+  provider: pages
+  # Keep builded pages
+  skip-cleanup: true
+  # Directory where your generated files are located
+  local_dir: public
+  # Github security/auth token
+  github-token: 1a3a7924f945b1fc60f1c366ae99431907b32b4c
+  # Incremental commit to keep old build/files from previous deployments
+  keep-history: true
+  # Git branch on which it should deploy (master, gh-pages, foo...)
+  target_branch: gh-pages
+  on:
+    # Which branch on commit/push will trigger deployment
+    branch: master
