@@ -7,13 +7,15 @@ matrix:
   include:
     - php: 7.1.32
       env: WITH_COVERAGE=true
-
+# optionally specify a list of environments, for example to test different RDBMS
+env:
+  - DB=mysql
 
 before_script:
 
 - composer self-update
   - composer install --prefer-source --no-interaction --dev
-  - mysql -e "CREATE DATABASE IF NOT EXISTS  simple_stock" -uroot
+  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS simple_stock;" -uroot; fi
 
 # omitting "script:" will default to phpunit
 script: phpunit --configuration phpunit_mysql.xml --coverage-text
