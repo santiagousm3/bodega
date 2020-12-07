@@ -21,13 +21,11 @@ cache:
 before_install:
   - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" ]]; then COLLECT_COVERAGE=true; else COLLECT_COVERAGE=false; fi
   - if [[ "$COLLECT_COVERAGE" == "false" ]]; then phpenv config-rm xdebug.ini; fi
-  - composer self-update
-  - composer validate --no-check-publish
-
-install:
-  - composer install
 
 before_script:
+
+- composer self-update
+  - composer install --prefer-source --no-interaction --dev
   - sh tools/travis/setup-mail.sh
   - mysql -e "CREATE DATABASE $TRAVIS_DB" -uroot
   - vendor/bin/phinx --configuration=phinx.yml.dist migrate -e testing
