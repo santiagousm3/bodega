@@ -13,8 +13,6 @@ env:
 
 before_script:
 
-- composer self-update
-  - composer install --prefer-source --no-interaction --dev
   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS simple_stock;" -uroot; fi
 
 # omitting "script:" will default to phpunit
