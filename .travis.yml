@@ -21,7 +21,7 @@ deploy:
   # Directory where your generated files are located
   local_dir: public
   # Github security/auth token
-  github-token: a20b12009d58ffb7d563faa054157cdb0996acde
+  github-token: 02befb68392e1d01eceb35b99da567c24832c277
   # Incremental commit to keep old build/files from previous deployments
   keep-history: true
   # Git branch on which it should deploy (master, gh-pages, foo...)
