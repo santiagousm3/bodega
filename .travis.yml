@@ -15,10 +15,9 @@ addons:
 
 dist: trusty
 
-sudo: required
 before_script:
 
-  -  mysql -e "create database IF NOT EXISTS simple_stock;" -uroot;
+  -  mysql -e "create database IF NOT EXISTS simple_stock;";
 
 # omitting "script:" will default to phpunit
 script: phpunit --configuration phpunit_mysql.xml --coverage-text
