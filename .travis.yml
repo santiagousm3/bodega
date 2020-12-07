@@ -8,6 +8,3 @@ services:
 
 before_install:
   - mysql -u root --password="" < bodega/simple_stock.sql
-
-# omitting "script:" will default to phpunit
-script: phpunit --configuration phpunit_mysql.xml
