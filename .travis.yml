@@ -2,7 +2,7 @@ language: php
 
 php:
 # aliased to a recent 7.x version
-  - 7.2
+  - 7.1.32
 services:
   - mysql
 
