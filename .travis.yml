@@ -15,16 +15,17 @@ script: phpunit --configuration phpunit_mysql.xml
 # Here is the magic part
 deploy:
   # Use Github pages deploy process
-  provider: pages:git
+  provider: pages
+  # Keep builded pages
+  skip-cleanup: true
   # Directory where your generated files are located
   local_dir: public
   # Github security/auth token
-  github-token: 0e27284b8c8ca59c6a34f48471a1c660a245e88e
+  github-token: $GITHUB_TOKEN
   # Incremental commit to keep old build/files from previous deployments
   keep-history: true
   # Git branch on which it should deploy (master, gh-pages, foo...)
   target_branch: gh-pages
-  edge: true # opt in to dpl v2
   on:
     # Which branch on commit/push will trigger deployment
     branch: main
