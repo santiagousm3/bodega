@@ -3,7 +3,19 @@ language: php
 php:
 # aliased to a recent 7.x version
   - 7.1.32
+services:
+  - mysql
 
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+
+dist: trusty
+
+sudo: required
 before_script:
 
   -  mysql -e "create database IF NOT EXISTS simple_stock;" -uroot;
