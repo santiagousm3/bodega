@@ -1,19 +1,14 @@
 language: php
 
-sudo: false
-
-matrix:
-  fast_finish: true
-  include:
-    - php: 7.1.32
-      env: WITH_COVERAGE=true
-# optionally specify a list of environments, for example to test different RDBMS
-env:
-  - DB=mysql
+# aliased to a recent 7.x version
+  - 7.0
+  # aliased to a recent hhvm version
+  - hhvm
+  
 
 before_script:
 
-  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS simple_stock;" -uroot; fi
+  -  mysql -e "create database IF NOT EXISTS simple_stock;" -uroot;
 
 # omitting "script:" will default to phpunit
 script: phpunit --configuration phpunit_mysql.xml --coverage-text
