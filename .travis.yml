@@ -8,31 +8,13 @@ matrix:
     - php: 7.1.32
       env: WITH_COVERAGE=true
 
-env:
-  global:
-    - TRAVIS_DB=simple_stock
-    - CODECLIMATE_REPO_TOKEN=9deb249b01a414d979959cfd05a4c351b19a5959858653b20276454d4189edc3
-
-# cache composer downloads so installing is quicker
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-before_install:
-  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" ]]; then COLLECT_COVERAGE=true; else COLLECT_COVERAGE=false; fi
-  - if [[ "$COLLECT_COVERAGE" == "false" ]]; then phpenv config-rm xdebug.ini; fi
 
 before_script:
 
 - composer self-update
   - composer install --prefer-source --no-interaction --dev
-  - sh tools/travis/setup-mail.sh
-  - mysql -e "CREATE DATABASE $TRAVIS_DB" -uroot
-  - vendor/bin/phinx --configuration=phinx.yml.dist migrate -e testing
+  - mysql -e "CREATE DATABASE simple_stock" -uroot
 
-script:
-  - if [[ "$COLLECT_COVERAGE" == "true" ]]; then phpunit_mysql.xml --coverage-clover build/logs/clover.xml; else phpunit_mysql.xml; fi
-  - if [[ "$WITH_CS" == "true" ]]; then vendor/bin/php-cs-fixer fix --verbose; fi
-
-after_success:
-  - if [[ "$COLLECT_COVERAGE" == "true" ]]; then vendor/bin/test-reporter --coverage-report build/logs/clover.xml; fi
+# omitting "script:" will default to phpunit
+# use the $DB env variable to determine the phpunit.xml to use
+script: phpunit --configuration phpunit_mysql.xml --coverage-text
