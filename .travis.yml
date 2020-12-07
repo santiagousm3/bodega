@@ -16,8 +16,6 @@ script: phpunit --configuration phpunit_mysql.xml
 deploy:
   # Use Github pages deploy process
   provider: pages
-  # Keep builded pages
-  skip-cleanup: true
   # Directory where your generated files are located
   local_dir: public
   # Github security/auth token
