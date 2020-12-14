@@ -82,7 +82,7 @@ $( "#guardar_usuario" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/nuevo_usuario.php",
+			url: "./ajax/nuevo_usuario.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax").html("Mensaje: Cargando...");
@@ -102,7 +102,7 @@ $( "#editar_usuario" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/editar_usuario.php",
+			url: "./ajax/editar_usuario.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax2").html("Mensaje: Cargando...");
@@ -122,7 +122,7 @@ $( "#editar_password" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/editar_password.php",
+			url: "./ajax/editar_password.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax3").html("Mensaje: Cargando...");

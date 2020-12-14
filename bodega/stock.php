@@ -96,7 +96,7 @@ function eliminar (id){
 		var id_categoria= $("#id_categoria").val();
 		$.ajax({
 			type: "GET",
-			url: "http://localhost/server_productos/ajax/buscar_productos.php",
+			url: "./ajax/buscar_productos.php",
 			data: "id="+id,"q":q+"id_categoria="+id_categoria,
 			 beforeSend: function(objeto){
 				$("#resultados").html("Mensaje: Cargando...");
@@ -126,7 +126,7 @@ $( "#guardar_producto" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/nuevo_producto.php",
+			url: "./ajax/nuevo_producto.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax_productos").html("Mensaje: Cargando...");

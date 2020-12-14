@@ -200,7 +200,7 @@ $( "#editar_producto" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/editar_producto.php",
+			url: "./ajax/editar_producto.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax2").html("Mensaje: Cargando...");

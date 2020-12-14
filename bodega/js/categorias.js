@@ -6,7 +6,7 @@
 			var q= $("#q").val();
 			$("#loader").fadeIn('slow');
 			$.ajax({
-				url:'http://localhost/server_productos/ajax/buscar_categorias.php?action=ajax&page='+page+'&q='+q,
+				url:'./ajax/buscar_categorias.php?action=ajax&page='+page+'&q='+q,
 				 beforeSend: function(objeto){
 				 $('#loader').html('<img src="./img/ajax-loader.gif"> Cargando...');
 			  },
@@ -26,7 +26,7 @@
 		if (confirm("Realmente deseas eliminar la categoría")){	
 		$.ajax({
         type: "GET",
-        url: "http://localhost/server_productos/ajax/buscar_categorias.php",
+        url: "./ajax/buscar_categorias.php",
         data: "id="+id,"q":q,
 		 beforeSend: function(objeto){
 			$("#resultados").html("Mensaje: Cargando...");
@@ -47,7 +47,7 @@ $( "#guardar_categoria" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/nueva_categoria.php",
+			url: "./ajax/nueva_categoria.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax").html("Mensaje: Cargando...");
@@ -67,7 +67,7 @@ $( "#editar_categoria" ).submit(function( event ) {
  var parametros = $(this).serialize();
 	 $.ajax({
 			type: "POST",
-			url: "http://localhost/server_productos/ajax/editar_categoria.php",
+			url: "./ajax/editar_categoria.php",
 			data: parametros,
 			 beforeSend: function(objeto){
 				$("#resultados_ajax2").html("Mensaje: Cargando...");

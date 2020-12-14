@@ -9,7 +9,7 @@
 			$("#loader").fadeIn('slow');
 			$.ajax({
 				data: parametros,
-				url:'http://localhost/server_productos/ajax/buscar_productos.php',
+				url:'./ajax/buscar_productos.php',
 				 beforeSend: function(objeto){
 				 $('#loader').html('<img src="./img/ajax-loader.gif"> Cargando...');
 			  },
@@ -29,7 +29,7 @@
 		if (confirm("Realmente deseas eliminar el producto")){	
 		$.ajax({
         type: "GET",
-        url: "http://localhost/server_productos/ajax/buscar_productos.php",
+        url: "./ajax/buscar_productos.php",
         data: "id="+id,"q":q,
 		 beforeSend: function(objeto){
 			$("#resultados").html("Mensaje: Cargando...");
